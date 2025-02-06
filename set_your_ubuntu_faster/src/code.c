@@ -42,7 +42,7 @@ void install_code(void)
 
 int main(void)
 {
-    update_upgrade();
+    update_upgrade_apt();
     install_code();
     return 0;
 }

@@ -1,18 +1,21 @@
-CFLAGS	=	-Wall -Wextra -Werror -g3 -pedantic -MD # -fantalize=adress
+CFLAGS	=	-Wall -Wextra -Werror -g3 -pedantic # -fantalize=adress
 SRC_DIR	=	src
-DEP_DIR	=	dep
-OBJ_DIR	=	obj
 MAKE_ZSH	=	$(SRC_DIR)/zsh.c
-BIN	=	set_ubuntu
+MAKE_CODE	=	$(SRC_DIR)/code.c
+BIN	=	a.out
 
 zsh:
-	$(CC) $(MAKE_ZSH) -o $(BIN) $(CFLAGS)
+	$(CC) $(MAKE_ZSH) $(CFLAGS)
 	./$(BIN)
-	$(RM) $(BIN)
+	$(MAKE) fclean
 
-fclean: clean
-	$(RM) $(BIN)
+code:
+	$(CC) $(MAKE_CODE) $(CFLAGS)
+	./$(BIN)
+	$(RM) packages.microsoft.gpg
+	$(MAKE) fclean
 
-re: fclean all
+fclean:
+	$(RM) $(BIN)
 
 .PHONY: all lib clean fclean re
