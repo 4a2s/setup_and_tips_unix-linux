@@ -5,9 +5,10 @@ MAKE_CODE	=	$(SRC_DIR)/code.c
 BIN	=	a.out
 
 zsh:
+	sudo apt install build-essential
 	$(CC) $(MAKE_ZSH) $(CFLAGS)
-	# ./$(BIN)
-	# $(MAKE) fclean
+	./$(BIN)
+	$(MAKE) fclean
 
 code:
 	$(CC) $(MAKE_CODE) $(CFLAGS)
