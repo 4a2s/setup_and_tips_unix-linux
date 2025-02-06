@@ -5,7 +5,8 @@ users:
     shell: /bin/bash
     groups: sudo
     ssh_import_id:
-      - gh:tooneur
+      - gh: tooneur
+      - gh: HectorCordat
 
 package_update: true
 package_upgrade: true
