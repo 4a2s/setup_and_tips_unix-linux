@@ -1,19 +1,18 @@
 #!/bin/bash
 
-# Mettre à jour la liste des paquets et installer wget et gnupg si nécessaire
-sudo apt update && sudo apt install -y wget gnupg
+# Mettre à jour la liste des paquets et installer les outils nécessaires
+sudo apt update && sudo apt install -y wget gpg apt-transport-https
 
-# Ajouter le dépôt Discord
-echo "deb [arch=amd64] https://discordapp.com/api/download?platform=linux&format=deb" | sudo tee /etc/apt/sources.list.d/discord.list
+# Télécharger le paquet officiel Discord
+wget -O discord.deb "https://discord.com/api/download?platform=linux&format=deb"
 
-# Ajouter la clé GPG pour la vérification des paquets
-curl -fsSL https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/keyrings/discord.asc
+# Installer le paquet Discord
+sudo dpkg -i discord.deb
 
-# Mettre à jour les informations sur les paquets
-sudo apt update
+# Corriger les éventuelles dépendances manquantes
+sudo apt --fix-broken install -y
 
-# Installer Discord
-sudo apt install -y discord
+# Nettoyer le fichier téléchargé
+rm discord.deb
 
-# Mettre à jour Discord et tous les autres paquets
-sudo apt upgrade -y
+echo "Discord a été installé avec succès."
