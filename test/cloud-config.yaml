@@ -1,16 +1,12 @@
 users:
   - name: test
-    sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
-    groups: sudo
 
 package_update: true
 package_upgrade: true
 packages:
   - git
   - make
-  - zsh
-  - build-essential 
 
 runcmd:
   - sleep 5 
