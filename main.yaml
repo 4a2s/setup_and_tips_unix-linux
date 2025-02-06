@@ -13,21 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y  make
-
+          sudo apt install -y  git make build-essential 
       - name: Compile scripts
         run: |
-          make -o set_up setup.c
-
-      - name: Run installation script
-        run: |
-          ./set_up --dry-run  # Exécute avec un flag sécurisé si possible
+          make zsh
       - name: Verify Zsh Installation
         run: |
           if command -v zsh &>/dev/null; then
