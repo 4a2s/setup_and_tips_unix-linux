@@ -1,8 +1,19 @@
 #!/bin/bash
-sudo apt update && sudo apt install wget gnupg
-wget -O - https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/sources.list.d/discord.list
-curl -fsSL https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/sources.list.d/discord.list
+
+# Mettre à jour la liste des paquets et installer wget et gnupg si nécessaire
+sudo apt update && sudo apt install -y wget gnupg
+
+# Ajouter le dépôt Discord
+echo "deb [arch=amd64] https://discordapp.com/api/download?platform=linux&format=deb" | sudo tee /etc/apt/sources.list.d/discord.list
+
+# Ajouter la clé GPG pour la vérification des paquets
+curl -fsSL https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/keyrings/discord.asc
+
+# Mettre à jour les informations sur les paquets
 sudo apt update
-sudo apt install discord
-sudo apt update
-sudo apt upgrade
+
+# Installer Discord
+sudo apt install -y discord
+
+# Mettre à jour Discord et tous les autres paquets
+sudo apt upgrade -y
