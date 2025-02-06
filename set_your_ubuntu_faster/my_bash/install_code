@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt update
+
 # Installer wget, gpg et apt-transport-https
 sudo apt install wget gpg apt-transport-https -y
 

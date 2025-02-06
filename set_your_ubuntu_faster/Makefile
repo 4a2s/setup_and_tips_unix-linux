@@ -10,12 +10,10 @@ zsh:
 	$(MAKE) fclean
 
 code:
-	$(DIR_BASH)update_upgrade
 	$(DIR_BASH)install_code
 	$(RM) packages.microsoft.gpg
 
 discord:
-	$(DIR_BASH)update_upgrade
 	$(DIR_BASH)install_discord
 
 steam:
