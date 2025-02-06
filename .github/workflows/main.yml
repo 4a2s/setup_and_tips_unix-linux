@@ -23,7 +23,7 @@ jobs:
 
       - name: Compile scripts
         run: |
-          make zsh  # Sera exécuté dans le dossier du repo
+          cd set_your_ubuntu_faster && make zsh
 
       - name: Verify Zsh Installation
         run: |
