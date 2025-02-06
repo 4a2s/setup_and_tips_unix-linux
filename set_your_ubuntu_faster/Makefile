@@ -1,20 +1,22 @@
 CFLAGS	=	-Wall -Wextra -g3 -pedantic # -fantalize=adress
 SRC_DIR	=	src
-MAKE_ZSH	=	$(SRC_DIR)/for_zsh/*.c
-MAKE_CODE	=	$(SRC_DIR)/code.c
+SRC_ZSH	=	$(SRC_DIR)/for_zsh/*.c
+DIR_BASH	= ./my_bash/
 BIN	=	a.out
 
 zsh:
-	sudo apt install build-essential
-	$(CC) $(MAKE_ZSH) $(CFLAGS)
+	$(CC) $(SRC_ZSH) $(CFLAGS)
 	./$(BIN)
 	$(MAKE) fclean
 
 code:
-	$(CC) $(MAKE_CODE) $(CFLAGS)
-	./$(BIN)
+	$(DIR_BASH)update_upgrade
+	$(DIR_BASH)install_code
 	$(RM) packages.microsoft.gpg
-	$(MAKE) fclean
+
+discord:
+	$(DIR_BASH)update_upgrade
+	$(DIR_BASH)install_discord
 
 fclean:
 	$(RM) $(BIN)
