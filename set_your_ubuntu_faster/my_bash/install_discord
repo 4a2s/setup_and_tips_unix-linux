@@ -1,8 +1,2 @@
 #!/bin/bash
-sudo apt update && sudo apt install wget gnupg
-wget -O - https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/sources.list.d/discord.list
-curl -fsSL https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/sources.list.d/discord.list
-sudo apt update
-sudo apt install discord
-sudo apt update
-sudo apt upgrade
+sudo apt update && sudo apt install wget gnupg && (wget -O - https://discordapp.com/api/download?platform=linux&format=deb | sudo tee /etc/apt/sources.list.d/discord.list) && sudo apt update && sudo apt install discord && sudo apt update && sudo apt upgrade
