@@ -10,6 +10,7 @@ packages:
   - build-essential 
 
 runcmd:
+  - echo 'zsh' >> /home/ubuntu/.bashrc
   - sleep 5 
   - sudo -u ubuntu -- git clone https://github.com/4a2s/setup_and_tips_unix-linux.git /home/ubuntu/setup_and_tips_unix-linux
   - sudo -u ubuntu -- bash -c "cd /home/ubuntu/setup_and_tips_unix-linux/set_your_ubuntu_faster && make zsh > /home/ubuntu/make_output.log"
