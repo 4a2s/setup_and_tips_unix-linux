@@ -1,5 +1,15 @@
 #!/bin/bash
+
+# Installer wget, gpg et apt-transport-https
 sudo apt install wget gpg apt-transport-https -y
+
+# Télécharger et ajouter la clé GPG de Microsoft
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com
+
+# Ajouter le dépôt de Microsoft pour Visual Studio Code
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# Mettre à jour les paquets et installer Visual Studio Code
+sudo apt update
+sudo apt install code -y
