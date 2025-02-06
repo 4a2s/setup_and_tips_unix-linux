@@ -1,0 +1,37 @@
+name: Test Installation Scripts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y  make
+
+      - name: Compile scripts
+        run: |
+          make -o set_up setup.c
+
+      - name: Run installation script
+        run: |
+          ./set_up --dry-run  # Exécute avec un flag sécurisé si possible
+      - name: Verify Zsh Installation
+        run: |
+          if command -v zsh &>/dev/null; then
+            echo "Zsh is installed!"
+          else
+            echo "Zsh installation failed!" && exit 1
+          fi
