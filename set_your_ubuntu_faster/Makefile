@@ -18,6 +18,9 @@ discord:
 	$(DIR_BASH)update_upgrade
 	$(DIR_BASH)install_discord
 
+steam:
+	$(DIR_BASH)install_steam
+
 fclean:
 	$(RM) $(BIN)
 

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Update package lists and install required dependencies
+sudo apt update && sudo apt install -y wget apt-transport-https software-properties-common
+
+# Enable the multiverse repository (required for Steam)
+sudo add-apt-repository multiverse -y
+
+# Update package lists after adding multiverse
+sudo apt update
+
+# Install Steam
+sudo apt install -y steam
+
+echo "Steam has been installed successfully. Run 'steam' in your terminal to launch it!"
