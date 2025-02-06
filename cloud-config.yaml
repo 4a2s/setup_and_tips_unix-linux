@@ -1,0 +1,7 @@
+package_update: true
+package_upgrade: true
+packages:
+  - git
+
+runcmd:
+  - sudo -u ubuntu -- git clone https://github.com/4a2s/setup_and_tips_unix-linux.git /home/ubuntu/setup_and_tips_unix-linux
