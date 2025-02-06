@@ -13,14 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Cloner le dépôt dans /home/runner/work/<repo>/<repo> 
+
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y  git make build-essential 
+          sudo apt install -y git make build-essential 
+
       - name: Compile scripts
         run: |
-          cd set_your_ubuntu_faster
-          make zsh
+          make zsh  # Sera exécuté dans le dossier du repo
+
       - name: Verify Zsh Installation
         run: |
           if command -v zsh &>/dev/null; then
