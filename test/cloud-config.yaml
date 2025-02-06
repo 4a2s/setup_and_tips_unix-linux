@@ -11,7 +11,7 @@ packages:
 
 runcmd:
   - sleep 5 
-  - sudo -u ubuntu -- git clone https://tooneur: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@github.com/4a2s/setup_and_tips_unix-linux.git /home/ubuntu/setup_and_tips_unix-linux
+  - sudo -u ubuntu -- git clone https://github.com/4a2s/setup_and_tips_unix-linux.git /home/ubuntu/setup_and_tips_unix-linux
   - sudo -u ubuntu -- bash -c "cd /home/ubuntu/setup_and_tips_unix-linux/set_your_ubuntu_faster && make zsh > /home/ubuntu/make_output.log"
   - sleep 5 
   - sudo -u ubuntu -- bash -c "cd /home/ubuntu/setup_and_tips_unix-linux/set_your_ubuntu_faster && ./a.out"
