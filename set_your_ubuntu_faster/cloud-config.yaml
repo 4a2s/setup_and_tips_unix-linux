@@ -15,8 +15,14 @@ packages:
   - build-essential 
 
 runcmd:
+  - sed -i 's/^#X11DisplayOffset/X11DisplayOffset/' /etc/ssh/sshd_config
+  - sed -i 's/^#X11UseLocalhost/X11UseLocalhost/' /etc/ssh/sshd_config
+  - grep -q '^X11DisplayOffset' /etc/ssh/sshd_config || echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
+  - grep -q '^X11UseLocalhost' /etc/ssh/sshd_config || echo 'X11UseLocalhost yes' >> /etc/ssh/sshd_config
+  - systemctl restart ssh
   - sleep 5 
   - sudo -u test -- git clone https://github.com/4a2s/setup_and_tips_unix-linux.git /home/test/setup_and_tips_unix-linux
+  #changer la ligne du make code pour ce que l'on veut
   - sudo -u test -- bash -c "cd /home/test/setup_and_tips_unix-linux/set_your_ubuntu_faster && make code > /home/test/make_output.log"
   - sleep 5 
   - sudo -u test -- bash -c "cd /home/test/setup_and_tips_unix-linux/set_your_ubuntu_faster && ./a.out"
