@@ -1,6 +1,7 @@
 users:
   - name: test
     sudo: ALL=(ALL) NOPASSWD:ALL
+    passwd: "helloworld"
     shell: /bin/bash
     groups: sudo
     ssh_import_id:
