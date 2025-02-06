@@ -1,0 +1,19 @@
+users:
+  - name: test
+    passwd: "helloworld"
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - gh:tooneur
+
+package_update: true
+package_upgrade: true
+packages:
+  - git
+  - make
+  - build-essential 
+  - ubuntu-desktop 
+  - xrdp
+
+runcmd:
+  - sleep 5 
+  - sudo -u ubuntu -- git clone https://tooneur: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@github.com/4a2s/setup_and_tips_unix-linux.git /home/ubuntu/setup_and_tips_unix-linux
