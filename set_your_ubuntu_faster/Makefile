@@ -1,6 +1,6 @@
 CFLAGS	=	-Wall -Wextra -g3 -pedantic # -fantalize=adress
 SRC_DIR	=	src
-MAKE_ZSH	=	$(SRC_DIR)/zsh.c
+MAKE_ZSH	=	$(SRC_DIR)/for_zsh/*.c
 MAKE_CODE	=	$(SRC_DIR)/code.c
 BIN	=	a.out
 
